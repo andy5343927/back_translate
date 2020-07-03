@@ -1,0 +1,4 @@
+sh back_translate/run_split_paragraph.sh
+sh back_translate/run_forward_translation.sh
+sh back_translate/run_backward_translation.sh
+sh back_translate/run_transform_sentences_into_paragraph.sh
