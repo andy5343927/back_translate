@@ -48,3 +48,11 @@ Usually, it is in the range of three to eight sentences.
 Paragraphs may begin from fleek (approximately five spaces), or by absent, and then depart.
 This makes it easier to see when each paragraph ends or starts.
 ```
+
+
+====
+中文擴增方式 build on google translate
+```
+zh_en_example/zh.py
+```
+
