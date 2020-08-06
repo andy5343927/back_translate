@@ -7,13 +7,14 @@ from zh_en_example.bleu import bleu
 def arg_parser():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument(
+    source = parser.add_mutually_exclusive_group()
+    source.add_argument(
         "--src_text",
-        default=(
-            "武漢肺炎肆虐全球，台灣在第一時間啟動防疫機制，有效抑制疫情擴散，超前部署的防疫表現深受國際肯定。"
-            "隨後更展開「口罩外交」，幫助歐美等許多國家抗疫，無私暖舉讓國際相當感動。"
-        ),
         help="source text"
+    )
+    source.add_argument(
+        "--src_file",
+        help="source file"
     )
     parser.add_argument(
         "--src_lang",
@@ -44,8 +45,14 @@ def back_translate(src_text, text_lang):
 
 def main():
     args = arg_parser()
-    code, result = back_translate(args.src_text, args.src_lang)
-    print("source text:", args.src_text)
+    if args.src_text:
+        source = src_text
+    else:
+        file = open(args.src_file, "rt", encoding="utf-8")
+        source = file.read()
+        file.close()
+    code, result = back_translate(source, args.src_lang)
+    print("source text:", source)
     print("use", code, "to do back translate")
     print("result:", result)
 
