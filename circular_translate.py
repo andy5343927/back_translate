@@ -55,8 +55,6 @@ def circular_translate(src_text, text_lang, level):
                 if new_bleu_value != 1.0 and new_bleu_value > max_bleu_value:
                     max_bleu_value = new_bleu_value
                     next_text = new_text
-                else:
-                    cur_text = c
                 debug_count += 1
                 print("debug", debug_count, next_lang, max_bleu_value)
         cur_lang = next_lang
